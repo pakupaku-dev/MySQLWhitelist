@@ -7,6 +7,8 @@ Rust サーバー向けの MySQL ホワイトリストプラグインです。`w
 - 対象: Rust Dedicated Server + Oxide.Rust
 - 日本語が標準。設定で英語へ切り替え可能。
 
+Discord から登録・解除したい場合は、同梱の [Discord Bot と導入手順](Discord_Bot/README.md) を利用できます。
+
 ## 導入
 
 1. [Releases](https://github.com/pakupaku-dev/MySQLWhitelist/releases/latest) から `MySQLWhitelist.cs` をダウンロードし、サーバーの `oxide/plugins/` に配置します。Rust/Oxide が C# をコンパイルするため、JAR や事前ビルドした DLL は不要です。
@@ -44,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `whitelist` (
 );
 ```
 
-既存の管理ツールで `steamid` に Steam ID を登録してください。このリポジトリはプラグイン単体で、Web 管理画面や Discord Bot は含みません。
+既存の管理ツール、または同梱の [Discord Bot](Discord_Bot/README.md) から Steam ID を登録してください。Bot はプラグインと同じデータベースを使用します。
 
 判定結果を維持するため、従来の動作を次のとおり引き継いでいます。
 
@@ -61,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `whitelist` (
 既存の個人用コードを公開版 **1.0.0** として整理しました。
 
 - 日本語・英語メッセージと日本語の導入説明を追加。
-- 作者名を `pakupaku` に統一し、接続情報の初期値を公開用の例に変更。
 - 検索を `List` から `HashSet` に変更し、同じ ID の重複蓄積を抑制。
 - 現行の `CanUserLogin(name, id, ipAddress)` を使用。許可時は `null`、拒否時は理由を返す構成。
 - Oxide の Covalence API で接続中プレイヤーを扱い、Rust のゲーム内部クラスへの直接依存を削減。

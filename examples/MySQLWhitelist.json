@@ -1,0 +1,8 @@
+{
+  "host": "localhost",
+  "port": 3306,
+  "username": "rust_whitelist",
+  "password": "",
+  "database": "rust",
+  "language": "ja"
+}

@@ -1,0 +1,9 @@
+tests/output/
+.validation/
+.local-backups/
+.env
+oxide/
+*.log
+*.dll
+*.exe
+*.zip
